@@ -10,7 +10,7 @@ export const metadata = {
   authors: [{ name: 'Green Coffee Shelter' }],
   openGraph: {
     title: 'Green Coffee Shelter - Penginapan & Coffee Experience',
-    description: 'Pengalaman menginap unik di tengah perkeburan kopi hijau',
+    description: 'Pengalaman menginap unik di tengah perkebunan kopi hijau',
     type: 'website',
     locale: 'id_ID',
     images: [
@@ -25,14 +25,19 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Green Coffee Shelter - Penginapan & Coffee Experience',
-    description: 'Pengalaman menginap unik di tengah perkeburan kopi hijau',
+    description: 'Pengalaman menginap unik di tengah perkebunan kopi hijau',
     images: ['https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=1200&h=630&fit=crop'],
   },
-  viewport: 'width=device-width, initial-scale=1',
   themeColor: '#059669',
+  metadataBase: new URL('https://YOUR-VERCEL-DOMAIN.vercel.app'),
 }
 
-export default function RootLayout({ children }) {
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+}
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="id">
       <head>
@@ -41,10 +46,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
       </head>
-      <body className={inter.className}>
-        {children}
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   )
     }
-    
